@@ -1,0 +1,11 @@
+{
+  "http.proxy": "http://PROXY_USER:PROXY_PASSWORD@PROXY_HOST:3128",
+  "http.proxySupport": "override",
+  "http.proxyStrictSSL": true,
+  "http.noProxy": [
+    "localhost",
+    "127.0.0.1",
+    "::1"
+  ],
+  "cursor.general.disableHttp2": true
+}

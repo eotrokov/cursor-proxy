@@ -1,0 +1,23 @@
+services:
+  cursor-proxy:
+    image: ginuerzh/gost:2.11.5
+    container_name: cursor-proxy
+    restart: unless-stopped
+    ports:
+      - "${HTTP_PORT:-3128}:3128"
+      - "${SOCKS_PORT:-1080}:1080"
+    # Compose подставляет значения из .env при старте.
+    # HTTP CONNECT :3128 + SOCKS5 :1080 с basic-auth.
+    command:
+      - "-L=http://${PROXY_USER}:${PROXY_PASSWORD}@:3128"
+      - "-L=socks5://${PROXY_USER}:${PROXY_PASSWORD}@:1080"
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

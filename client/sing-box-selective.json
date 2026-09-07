@@ -1,0 +1,60 @@
+{
+  "log": {
+    "level": "warn",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": ["1.1.1.1", "8.8.8.8"],
+    "strategy": "prefer_ipv4"
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 7890,
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "http",
+      "tag": "cursor-vps",
+      "server": "PROXY_HOST",
+      "server_port": 3128,
+      "username": "PROXY_USER",
+      "password": "PROXY_PASSWORD"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "domain_suffix": [
+          "cursor.sh",
+          "cursor.com",
+          "cursor-cdn.com",
+          "cursorapi.com",
+          "cursorvm.com"
+        ],
+        "outbound": "cursor-vps"
+      },
+      {
+        "domain_keyword": ["anysphere"],
+        "outbound": "cursor-vps"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      }
+    ],
+    "final": "direct"
+  }
+}
