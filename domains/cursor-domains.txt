@@ -1,0 +1,35 @@
+# Домены Cursor, которые должны идти через прокси.
+# Источник: https://cursor.com/docs/enterprise/network-configuration
+#
+# Паттерны (предпочтительно):
+#   *.cursor.sh
+#   *.cursor-cdn.com
+#   *.cursorapi.com
+#   *.cursorvm.com
+#   *.*.cursorvm.com
+
+api2.cursor.sh
+api3.cursor.sh
+api4.cursor.sh
+api5.cursor.sh
+repo42.cursor.sh
+adminportal42.cursor.sh
+us-asia.gcpp.cursor.sh
+us-eu.gcpp.cursor.sh
+us-only.gcpp.cursor.sh
+agent.api5.cursor.sh
+agentn.api5.cursor.sh
+agent.us.api5.cursor.sh
+agentn.us.api5.cursor.sh
+agent.global.api5.cursor.sh
+agentn.global.api5.cursor.sh
+authenticate.cursor.sh
+authenticator.cursor.sh
+prod.authentication.cursor.sh
+authentication.cursor.sh
+marketplace.cursorapi.com
+cursor-cdn.com
+downloads.cursor.com
+cursor.com
+www.cursor.com
+anysphere-binaries.s3.us-east-1.amazonaws.com
