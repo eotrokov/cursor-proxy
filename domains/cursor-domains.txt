@@ -7,6 +7,9 @@
 #   *.cursorapi.com
 #   *.cursorvm.com
 #   *.*.cursorvm.com
+#
+# Agent / NAL часто резолвится в *api5geo* / *api5lat* CNAME —
+# при allowlist без wildcard добавьте и их (см. ниже).
 
 api2.cursor.sh
 api3.cursor.sh
