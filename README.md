@@ -90,7 +90,8 @@ PROXY_HOST=VPS_IP ./scripts/make-cursor-settings.sh
 | Симптом | Что сделать |
 |---------|-------------|
 | Network error / модели недоступны | Проверьте прокси `check-connectivity.sh`, убедитесь что `disableHttp2: true`, полный рестарт Cursor |
-| Работает chat, не работает Agent | HTTP/2/стриминг: оставьте `disableHttp2`, проверьте что прокси не буферизует SSE |
+| Работает chat, не работает Agent | Agent ходит на `agentn.global.api5.cursor.sh` (NAL). Оставьте `disableHttp2: true`, прогоните `check-connectivity.sh` — там этот хост обязателен. Прокси не должен буферизовать SSE |
+| В логах виден `agentn.global.api5.cursor.sh` | Это нормально для Agent. Домен уже в `domains/cursor-domains.txt` и покрыт `*.cursor.sh` в sing-box. Если запрос идёт мимо прокси (реальный IP) — снова проверьте `disableHttp2` и полный рестарт IDE |
 | Extension host / зависания при VPN TUN | Не пускайте loopback (`127.0.0.0/8`) в TUN; лучше SOCKS/`http.proxy`, не системный TUN |
 | Пароль со спецсимволами ломает URL | Сгенерируйте пароль без `@ : / ? #`, либо URL-encode |
 
