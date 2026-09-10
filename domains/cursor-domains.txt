@@ -17,12 +17,28 @@ adminportal42.cursor.sh
 us-asia.gcpp.cursor.sh
 us-eu.gcpp.cursor.sh
 us-only.gcpp.cursor.sh
+# Agent / NAL (Network Access Layer) — Agent и Cloud Agent ходят сюда.
 agent.api5.cursor.sh
 agentn.api5.cursor.sh
 agent.us.api5.cursor.sh
 agentn.us.api5.cursor.sh
 agent.global.api5.cursor.sh
 agentn.global.api5.cursor.sh
+# CNAME-таргеты geo/latency routing (dig agentn.global.api5.cursor.sh).
+# Клиент обычно держит исходный Host/SNI, но firewall/DNS allowlist
+# без wildcard может видеть уже эти имена.
+agent.api5geo.cursor.sh
+agent.api5lat.cursor.sh
+agentn.api5geo.cursor.sh
+agentn.api5lat.cursor.sh
+agent.us.api5geo.cursor.sh
+agent.us.api5lat.cursor.sh
+agentn.us.api5geo.cursor.sh
+agentn.us.api5lat.cursor.sh
+agent.global.api5geo.cursor.sh
+agent.global.api5lat.cursor.sh
+agentn.global.api5geo.cursor.sh
+agentn.global.api5lat.cursor.sh
 authenticate.cursor.sh
 authenticator.cursor.sh
 prod.authentication.cursor.sh

@@ -55,14 +55,18 @@ probe() {
 probe "https://api2.cursor.sh" required
 probe "https://cursor.com" required
 probe "https://api5.cursor.sh" optional
+# Agent / NAL: без этого хоста Agent часто «молчит», хотя chat уже работает.
+probe "https://agentn.global.api5.cursor.sh" required
+probe "https://agent.global.api5.cursor.sh" optional
 probe "https://authenticator.cursor.sh" optional
 
 echo
 if [ "$fail" -eq 0 ]; then
-  echo "OK: HTTPS до сервисов Cursor через прокси проходит."
+  echo "OK: HTTPS до сервисов Cursor (включая Agent NAL) через прокси проходит."
   echo "Дальше: вставьте настройки в Cursor и полностью перезапустите IDE."
 else
   echo "Есть ошибки. Проверьте: VPS онлайн, порты открыты, логин/пароль, файрвол."
+  echo "Если падает именно agentn.global.api5.cursor.sh — Agent не заработает."
   exit 1
 fi
 
